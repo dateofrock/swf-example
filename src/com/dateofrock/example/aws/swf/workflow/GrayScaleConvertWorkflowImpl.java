@@ -1,7 +1,6 @@
 package com.dateofrock.example.aws.swf.workflow;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -19,7 +18,6 @@ import com.dateofrock.example.logic.ImageOperationResult;
 
 public class GrayScaleConvertWorkflowImpl implements GrayScaleConvertWorkflow {
 
-	private static final Log log = LogFactory.getLog(GrayScaleConvertWorkflowImpl.class);
 	private S3ActivitiesClient s3ActivitiesClient = new S3ActivitiesClientImpl();
 	private ImageActivitiesClient imageActivitiesClient = new ImageActivitiesClientImpl();
 	private SNSActivitiesClient snsActivitiesClient = new SNSActivitiesClientImpl();
@@ -37,7 +35,6 @@ public class GrayScaleConvertWorkflowImpl implements GrayScaleConvertWorkflow {
 
 		// 4.SNSで通知
 		notifyOperationComplete(s3Result, imageOpResult);
-
 	}
 
 	@Asynchronous
