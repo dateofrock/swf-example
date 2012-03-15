@@ -1,0 +1,8 @@
+swfDomainName=ExampleWorkflow
+swfTaskListName=example-task-list
+swfEndPoint=swf.us-east-1.amazonaws.com
+
+s3BucketName=YOUR_BUCKET_NAME
+
+snsEndPoint=sns.ap-northeast-1.amazonaws.com
+snsTopicARN=YOUR_TOPIC_ARN

@@ -12,7 +12,6 @@ import org.apache.commons.logging.LogFactory;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.S3Object;
 import com.dateofrock.example.aws.AWSUtils;
-import com.dateofrock.example.aws.swf.ExampleConstants;
 
 public class S3ActivitiesImpl implements S3Activities {
 
@@ -25,7 +24,7 @@ public class S3ActivitiesImpl implements S3Activities {
 		S3Result result = new S3Result();
 
 		AmazonS3 s3 = AWSUtils.s3Client();
-		String bucketName = ExampleConstants.S3_BUCKET_NAME;
+		String bucketName = AWSUtils.getS3BucketName();
 		String keyName = "images/" + imageFile.getName();
 		s3.putObject(bucketName, keyName, imageFile);
 

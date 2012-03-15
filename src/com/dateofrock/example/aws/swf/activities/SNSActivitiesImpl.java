@@ -6,7 +6,6 @@ import org.apache.commons.logging.LogFactory;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.model.PublishRequest;
 import com.dateofrock.example.aws.AWSUtils;
-import com.dateofrock.example.aws.swf.ExampleConstants;
 import com.dateofrock.example.logic.ImageOperationResult;
 
 public class SNSActivitiesImpl implements SNSActivities {
@@ -30,7 +29,7 @@ public class SNSActivitiesImpl implements SNSActivities {
 		} else {
 			subject = "GrayScale Operation Failed!";
 		}
-		sns.publish(new PublishRequest().withTopicArn(ExampleConstants.SNS_TOPIC_ARN).withMessage(message.toString())
+		sns.publish(new PublishRequest().withTopicArn(AWSUtils.getSNSTopicARN()).withMessage(message.toString())
 				.withSubject(subject));
 		log.info("通知終了");
 	}

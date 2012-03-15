@@ -2,9 +2,6 @@ package com.dateofrock.example.aws.swf.workflow;
 
 import java.io.File;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.amazonaws.services.simpleworkflow.flow.annotations.Asynchronous;
 import com.amazonaws.services.simpleworkflow.flow.core.Promise;
 import com.dateofrock.example.aws.swf.activities.ImageActivitiesClient;
@@ -25,7 +22,7 @@ public class GrayScaleConvertWorkflowImpl implements GrayScaleConvertWorkflow {
 	@Override
 	public void execute(File imageFile) {
 		// 1.S3にアップロード
-		Promise<S3Result> s3Result = s3ActivitiesClient.upload(imageFile);
+		Promise<S3Result> s3Result = this.s3ActivitiesClient.upload(imageFile);
 
 		// 2.S3からダウンロード
 		Promise<File> downloadTo = downloadFromS3(s3Result);
@@ -39,16 +36,16 @@ public class GrayScaleConvertWorkflowImpl implements GrayScaleConvertWorkflow {
 
 	@Asynchronous
 	private Promise<File> downloadFromS3(Promise<S3Result> s3Result) {
-		return s3ActivitiesClient.download(s3Result);
+		return this.s3ActivitiesClient.download(s3Result);
 	}
 
 	@Asynchronous
 	private Promise<ImageOperationResult> convertToGrayScale(Promise<File> downloadTo) {
-		return imageActivitiesClient.convertToGrayScale(downloadTo);
+		return this.imageActivitiesClient.convertToGrayScale(downloadTo);
 	}
 
 	@Asynchronous
 	private void notifyOperationComplete(Promise<S3Result> s3Result, Promise<ImageOperationResult> imageOpResult) {
-		snsActivitiesClient.notifyOperationComplete(s3Result, imageOpResult);
+		this.snsActivitiesClient.notifyOperationComplete(s3Result, imageOpResult);
 	}
 }
