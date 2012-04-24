@@ -4,8 +4,9 @@ Amazon Simple Workflow Serviceのサンプルプログラムです。[ブログ]
 
 Usage
 ----
-* AwsCredentials.propertiesにAWSのアクセスキー、シークレットキーを入れてください。
-* メール通知にはAmazon Simple Notification Serviceを使用します。あらかじめトピックを作成して、リージョンのAPIエンドポイントとARNをsns-config.propertiesに書き込んでください。
+* [src/AwsCredentials.properties](https://github.com/dateofrock/swf-example/blob/master/src/AwsCredentials.properties.txt)にAWSのアクセスキー、シークレットキーを入れてください。
+* メール通知には[Amazon Simple Notification Service](http://aws.amazon.com/jp/sns/)を使用します。あらかじめトピックを作成して、APIエンドポイントとARNを[src/config.properties](https://github.com/dateofrock/swf-example/blob/master/src/config.properties.txt)に書き込んでください。
+* 実行手順は、最初に[ActivityHost](https://github.com/dateofrock/swf-example/blob/master/src/com/dateofrock/example/aws/swf/worker/ActivityHost.java)、[WorkflowHost](https://github.com/dateofrock/swf-example/blob/master/src/com/dateofrock/example/aws/swf/worker/WorkflowHost.java)を起動してください。その後、[Starter](https://github.com/dateofrock/swf-example/blob/master/src/com/dateofrock/example/Starter.java)を起動すると、ワークフローが実行されます。
 
 
 Licence
