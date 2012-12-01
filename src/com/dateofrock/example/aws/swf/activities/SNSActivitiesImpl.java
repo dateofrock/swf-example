@@ -34,4 +34,12 @@ public class SNSActivitiesImpl implements SNSActivities {
 		log.info("通知終了");
 	}
 
+	@Override
+	public void notifyException(Throwable e) {
+		AmazonSNS sns = AWSUtils.snsClient();
+		String subject = "例外発生";
+		String body = e.getLocalizedMessage();
+		sns.publish(new PublishRequest().withTopicArn(AWSUtils.getSNSTopicARN()).withMessage(body).withSubject(subject));
+	}
+
 }

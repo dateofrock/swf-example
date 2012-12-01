@@ -10,7 +10,7 @@ import com.amazonaws.services.simpleworkflow.flow.annotations.WorkflowRegistrati
 @WorkflowRegistrationOptions(defaultExecutionStartToCloseTimeoutSeconds = 300)
 public interface GrayScaleConvertWorkflow {
 
-	@Execute(version = "1.0", name = "example.GrayScaleConvertWorkflow.execute")
+	@Execute(version = "2.0", name = "example.GrayScaleConvertWorkflow.execute")
 	public void execute(File imageFile);
 
 }
