@@ -1,6 +1,12 @@
 swf-example
 ===================
-Amazon Simple Workflow Serviceのサンプルプログラムです。[ブログ](http://blog.dateofrock.com/2012/03/amazon-swf.html)に解説があります。
+Amazon Simple Workflow Serviceのサンプルプログラムです。
+
+* ブログ記事
+  * [Amazon SWFつかってみた（ながいよ）](http://blog.dateofrock.com/2012/03/amazon-swf.html)
+  * [Amazon SWF Flow Frameworkのエラー処理について](http://blog.dateofrock.com/2012/12/amazon-swf-flow-framework.html)
+
+
 
 Usage
 ----
